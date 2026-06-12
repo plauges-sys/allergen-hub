@@ -1,0 +1,89 @@
+import { Restaurant } from "../types";
+
+/**
+ * RESTAURANT DATA TEMPLATE
+ * * INSTRUCTIONS:
+ * 1. Copy this entire file to create a new restaurant (e.g., starbucks.ts).
+ * 2. Change the variable name 'restaurantTemplate' to match your file (e.g., starbucks).
+ * 3. Fill out the metadata fields below.
+ * 4. Add your menu items to the 'items' array.
+ */
+export const restaurantTemplate: Restaurant = { // <-- CHANGE THIS variable name (e.g., export const starbucks: Restaurant)
+  // 1. NAME: The display name shown on the dashboard and search bar
+  name: "CHANGE TO RESTAURANT NAME", 
+
+  // 2. TAGS (Multiple Food Types):
+  // You can include multiple strings here to categorize your restaurant.
+  // CRITICAL: They must exactly match the casing of the dashboard tabs:
+  // Options: "Fast Food", "Mexican", "Sit Down", "Italian", "Cafe"
+  tags: ["Fast Food", "Sit Down"], // <-- ADD OR REMOVE tags in this array to support multiple types
+
+  // 3. LAST UPDATED: Verification date stamp shown to the user
+  lastUpdated: "May 2026", 
+
+  // 4. MENU ITEMS ARRAY
+  items: [
+    // --- CATEGORY 1 EXAMPLES ---
+    {
+      id: "rest-item-1", // Unique ID string (Prefix with restaurant shorthand, e.g., "sb-latte")
+      category: "Burgers", // <-- HOW TO CREATE A NEW CATEGORY: Simply type the category name here. 
+                           // Items with the exact same category string are grouped together in the menu view.
+      name: "Classic Hamburger",
+      allergens: {
+        dairy: false,   // false = SAFE (does not contain the allergen)
+        wheat: true,    // true = WARNING (contains the allergen)
+        peanuts: false,
+        soy: true,
+      },
+      notes: "⚠️ CONTAINMENT: Contains milk, wheat, and soy.\n\n" +
+             "🔄 SUBSTITUTIONS: Can be requested with a dairy-free coconut cream base, but cookie dough pieces will still contain wheat and soy.\n\n" +
+             "⚡ CROSS-CONTAMINATION: High risk. Shared blending machines are used for peanut butter and dairy soft-serve throughout the day.",
+    },
+    {
+      id: "rest-item-2",
+      category: "Burgers", // Belongs to the same category as above
+      name: "Cheeseburger",
+      allergens: {
+        dairy: true,    // Flagged true for the cheese slice
+        wheat: true,
+        peanuts: false,
+        soy: true,
+        gluten: false,
+        sulphites: false,
+      },
+      notes: "Contains American cheese.",
+    },
+
+    // --- CATEGORY 2 EXAMPLES ---
+    {
+      id: "rest-item-3",
+      category: "Sides", // <-- NEW CATEGORY STARTED: Simply by changing this string, a new section forms
+      name: "French Fries",
+      allergens: {
+        dairy: false,
+        wheat: false,
+        peanuts: false,
+        soy: false,
+        gluten: false,
+        sulphites: false,
+      },
+      notes: "Fried in 100% soybean oil. Shared fryer with wheat-breaded items.",
+    },
+    
+    /* HOW TO ADD A NEW ITEM (TEMPLATE COPIER):
+    Uncomment or copy-paste this block to add a new menu item:
+    {
+      id: "unique-id",
+      category: "Category Name",
+      name: "Item Name",
+      allergens: {
+        dairy: false,
+        wheat: false,
+        peanuts: false,
+        soy: false
+      },
+      notes: ""
+    },
+    */
+  ],
+};
